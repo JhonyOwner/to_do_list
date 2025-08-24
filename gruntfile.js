@@ -1,6 +1,22 @@
 module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+
+        less: {
+            development: {
+                files: {
+                    'dev/styles/main.css': 'src/styles/main.less'
+                }
+            },
+            production: {
+                options: {
+                    compress: true,
+                },
+                files: {
+                    'dist/styles/main.min.css': 'src/styles/main.less'
+                }
+            }
+        }
     });
 
     grunt.registerTask('minhaTarefa', function () {
@@ -8,5 +24,8 @@ module.exports = function (grunt) {
         console.log('Olá Grunt');
     });
 
+    grunt.loadNpmTasks('grunt-contrib-less');
+
     grunt.registerTask('default', ['minhaTarefa']);
+    grunt.registerTask('build', ['less:production']);
 }
