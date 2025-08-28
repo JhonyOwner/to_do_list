@@ -2,7 +2,8 @@
   "devDependencies": {
     "grunt": "^1.6.1",
     "grunt-contrib-less": "^3.0.0",
-    "grunt-contrib-watch": "^1.1.0"
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-replace": "^2.0.2"
   },
   "name": "grunt",
   "version": "1.0.0",
