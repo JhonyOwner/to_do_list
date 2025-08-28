@@ -26,6 +26,22 @@ module.exports = function (grunt) {
                 files: ['src.index.html'],
                 task: ['replace.dev']
             }
+        },
+        replace: {
+            dev: {
+                options: {
+                    patterns:[
+                        {
+                            match: 'ENDERECO_DO_CSS',
+                            replacement: './style/main.css'
+                        },
+                        {
+                            match: 'ENDERECO_DO_JS',
+                            replacement: '../src/scripts/main.js'
+                        }
+                    ]
+                }
+            }
         }
     });
 
@@ -36,7 +52,8 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-replace');
 
     grunt.registerTask('default', ['watch']);
-    grunt.registerTask('build', ['less:production']);
+    grunt.registerTask('build', ['less:production', 'replace:dist']);
 }
