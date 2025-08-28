@@ -1,3 +1,5 @@
+const { flatten } = require("lodash");
+
 module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -40,7 +42,15 @@ module.exports = function (grunt) {
                             replacement: '../src/scripts/main.js'
                         }
                     ]
-                }
+                }, 
+                files: [
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: ['prebuild/index.html'],
+                        dest: 'dist/'
+                    }
+                ]
             }
         }
     });
