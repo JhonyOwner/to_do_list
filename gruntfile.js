@@ -22,23 +22,23 @@ module.exports = function (grunt) {
         watch: {
             less: {
                 files: ['src/styles/**/*.less'],
-                task: ['less:development']
+                tasks: ['less:development']
             },
             html: {
                 files: ['src.index.html'],
-                task: ['replace.dev']
+                tasks: ['replace.dev']
             }
         },
         replace: {
             dev: {
                 options: {
-                    patterns:[
+                    patterns: [
                         {
-                            match: 'ENDERECO_DO_CSS',
+                            match: 'ENDERECO_DO_CSS', // não inclua os @@ aqui
                             replacement: './styles/main.css'
                         }
                     ]
-                }, 
+                },
                 files: [
                     {
                         expand: true,
@@ -51,15 +51,10 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('minhaTarefa', function () {
-        // conteúdo da tarefa
-        console.log('Olá Grunt');
-    });
-
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-replace');
 
-    grunt.registerTask('default', ['less:development']);
-    grunt.registerTask('build', ['less:production', 'replace:dist']);
+    grunt.registerTask('default', ['watch']);
+    grunt.registerTask('build', ['less:production']);
 }
