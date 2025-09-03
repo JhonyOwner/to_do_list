@@ -34,7 +34,7 @@ module.exports = function (grunt) {
                 options: {
                     patterns: [
                         {
-                            match: 'ENDERECO_DO_CSS', // não inclua os @@ aqui
+                            match: 'ENDERECO_DO_CSS',
                             replacement: './styles/main.css'
                         }
                     ]
