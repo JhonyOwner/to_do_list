@@ -1,4 +1,4 @@
-dcument.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     const taskForm = document.querySelector('.taskForm');
     const taskInput = document.getElementById('taskImput');
     const taskList = document.getElementById('taskList');
